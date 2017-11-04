@@ -12,12 +12,18 @@ module.exports = {
       const {id, message, username, roomname} = req.body;
       const data = {id, message, username, roomname};
 
+      // console.log('\n\n');
+      // console.log(`You sent this data: \n${id} \n${message} \n${username} \n${roomname}`);
+      // console.log('\n\n');
+
       // send the data to the database
       models.messages.post(data);
+
+      res.end('Query complete!');
             
       // send a response, so that it knows we recieved the data
       // NOTE: should set a header and replace the below with something more succinct
-      res.end(`You sent this data: \n${id} \n${message} \n${username} \n${roomname}`);
+      // res.end(`You sent this data: \n${id} \n${message} \n${username} \n${roomname}`);
     } // a function which handles posting a message to the database
   },
 
