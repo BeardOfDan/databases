@@ -9,7 +9,9 @@ module.exports = {
         if (err) {
           throw err;
         }
-
+        
+        // console.log('\nresult.length', result.length, '\n');
+        // console.log('\n\nresult\n', result);
         cb(result);
       });
 
@@ -21,6 +23,7 @@ module.exports = {
         if (err) {
           throw err;
         }
+        // console.log('\n\nresult.length', result.length);
         // console.log('record inserted: ', result);
       });
 
