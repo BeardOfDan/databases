@@ -30,10 +30,17 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function (cb) {
-      const ourQuery = '';
+      const ourQuery = 'SELECT * FROM users';
+
+      connection.query(ourQuery, function (err, result) {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
     },
     post: function (data) {
-      const ourQuery = `INSERT INTO users (id, username) VALUES (${data.id}, '${data.username}');`;
+      const ourQuery = `INSERT INTO users (username) VALUES ('${data.username}');`;
       connection.query(ourQuery, function (err, result) {
         if (err) {
           throw err;

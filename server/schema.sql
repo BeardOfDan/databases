@@ -13,7 +13,7 @@ CREATE TABLE messages (
 /* Create other tables and define schemas for them here! */
 
 CREATE TABLE users (
-  id INTEGER PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
   username TEXT
 );
 
