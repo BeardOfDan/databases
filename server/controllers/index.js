@@ -3,19 +3,17 @@ var models = require('../models');
 module.exports = {
   messages: {
     get: function (req, res) {
-      // get the data from the database
-      const data = 'This (message) data needs to come from the database'; // fill this with a get request to the database
-
-      // return the data to the user
-      res.send(data);
-      
-    }, // a function which handles a get request for all messages
+      const data = models.messages.get(function(data) {
+        res.send(data);
+      });     
+    }, 
     post: function (req, res) {
       // extract the data from the POST request        
       const {id, message, username, roomname} = req.body;
+      const data = {id, message, username, roomname};
 
       // send the data to the database
-      // TODO
+      models.messages.post(data);
             
       // send a response, so that it knows we recieved the data
       // NOTE: should set a header and replace the below with something more succinct
@@ -26,16 +24,18 @@ module.exports = {
   users: {
     // Ditto as above
     get: function (req, res) {
-      const data = 'This (user) data needs to come from the database';
-    
-      res.send(data);
+      const data = models.users.get(function(data) {
+        res.send(data);
+      });
     },
     post: function (req, res) {
       const {id, username} = req.body;
-    
+      const data = {id, username};
+
       // send the data to the database
       // TODO
 
+      models.users.post(data);
       res.end(`You sent this data: \n${id} \n${username}`);
     }
   }

@@ -17,6 +17,11 @@ CREATE TABLE users (
   username TEXT
 );
 
+CREATE TABLE chat (
+  id INTEGER PRIMARY KEY
+);
+
+
 -- CREATE TABLE messages_users (
 --   id INTEGER PRIMARY KEY,
 --   user_id INTEGER,
